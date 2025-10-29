@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نظام إدارة الصيدلية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      /* Hide number input arrows (spinners) */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+      
+      /* Print-specific styles */
+      @media print {
+        /* Hide all elements by default */
+        body * {
+          visibility: hidden;
+        }
+        
+        /* Show the main printable area and its children */
+        .printable-area, .printable-area * {
+          visibility: visible;
+        }
+        .printable-area {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          padding: 1rem;
+        }
+
+        /* General page printing styles */
+        .printable-page, .printable-page * {
+            visibility: visible;
+        }
+        .printable-page {
+            position: static;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hide elements that should not be printed */
+        .no-print {
+          display: none !important;
+        }
+        
+        /* Reset layout for printing */
+        body {
+            background-color: white !important;
+            margin: 0;
+        }
+        main {
+            margin: 0 !important;
+            padding: 1rem !important;
+            box-shadow: none !important;
+        }
+        .bg-white, .bg-gray-50, .bg-gray-100 {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        
+        /* Ensure table borders are visible and clean */
+        table, th, td {
+            border: 1px solid #ccc !important;
+            border-collapse: collapse !important;
+            color: black !important;
+        }
+        th, td {
+            padding: 8px !important;
+        }
+        thead {
+            background-color: #f2f2f2 !important;
+        }
+
+        /* Remove borders and shadows from inputs for a cleaner look */
+        input, textarea, select {
+            border: none !important;
+            box-shadow: none !important;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: transparent !important;
+            padding: 1px;
+            color: black !important;
+        }
+
+        /* Prevent page breaks inside rows and elements */
+        tr, h1, h2, h3, h4, h5, h6 {
+            page-break-inside: avoid;
+        }
+        
+        /* Add page break before new sections if needed */
+        .page-break-before {
+            page-break-before: always;
+        }
+
+        /* Thermal printer specific styles */
+        .thermal-print {
+            width: 80mm !important;
+            max-width: 80mm !important;
+            padding: 2mm !important;
+            font-size: 10pt !important;
+            color: #000 !important;
+            background: #fff !important;
+        }
+        .thermal-print * {
+             font-size: 10pt !important;
+             color: #000 !important;
+             line-height: 1.4 !important;
+             font-family: 'Courier New', Courier, monospace !important; /* Monospaced font for alignment */
+        }
+        .thermal-print h1 { font-size: 14pt !important; font-weight: bold; margin-bottom: 2mm !important; }
+        .thermal-print h2 { font-size: 12pt !important; font-weight: bold; margin-bottom: 2mm !important; }
+        .thermal-print p { margin: 0 0 1mm 0 !important; }
+        .thermal-print table { width: 100% !important; border: none !important; border-collapse: collapse !important; }
+        .thermal-print th, .thermal-print td {
+            border: none !important;
+            border-bottom: 1px dashed #666 !important;
+            padding: 1mm !important;
+            text-align: right !important;
+        }
+        .thermal-print thead th { border-bottom: 1px solid #000 !important; }
+        .thermal-print .text-left { text-align: left !important; }
+        .thermal-print .text-center { text-align: center !important; }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Tajawal', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.548.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
